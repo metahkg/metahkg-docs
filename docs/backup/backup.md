@@ -8,7 +8,7 @@ sidebar_position: 1
 
 We use mongodump and mongorestore to backup and restore the database.
 
-- [install tutorial](/docker/setup/requirements/#mongodb-shell-and-database-tools)
+- [install tutorial](/docs/deploy/setup/requirements#mongodb-shell-and-database-tools)
 
 ## Using mongodump to backup the whole database
 

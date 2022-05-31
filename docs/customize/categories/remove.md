@@ -20,7 +20,7 @@ Find the id of the one you want to remove.
 
 ## Remove
 
-**_WARNING:_** DO NOT remove [category 1](../category1), or the output might not be as expected.
+**_WARNING:_** DO NOT remove [category 1](./category1), or the output might not be as expected.
 
 ```javascript
 metahkg> db.category.deleteOne({ id: <id> })

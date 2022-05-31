@@ -84,4 +84,4 @@ $ sudo systemctl reload nginx
 ```
 
 Metahkg is now available at your domain.
-If you use [let's encrypt](https://letsencrypt.org), follow the steps at [letsencrypt](../letsencrypt).
+If you use [let's encrypt](https://letsencrypt.org), follow the steps at [letsencrypt](./letsencrypt).

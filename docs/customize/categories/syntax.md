@@ -16,11 +16,11 @@ interface Category {
 
 ## Hidden
 
-**_See [hide](../hide) for more information._**
+**_See [hide](./hide) for more information._**
 
 If you hide a category:
 
-- its posts are not visible in [category 1](../category1)
+- its posts are not visible in [category 1](./category1)
 
 And if the user is not signed in:
 

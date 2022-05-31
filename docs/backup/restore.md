@@ -6,7 +6,9 @@ sidebar_position: 2
 
 We can use mongorestore to restore the whole database.
 
-**_WARNING:_** make sure your new database is empty before restoring!
+::warning Caution
+Make sure your new database is empty before restoring!
+::
 
 ```bash
 mongorestore -d=metahkg --uri=mongodb://<username>:<password>@localhost:<port>

@@ -56,4 +56,4 @@ Key:
 
 Let's encrypt is a free certificate service.
 
-Please follow the configuration for [let's encrypt](https://letsencrypt.org/) at [conf](../conf), then see [letsencrypt](../letsencrypt).
+Please follow the configuration for [let's encrypt](https://letsencrypt.org/) at [conf](./conf), then see [letsencrypt](./letsencrypt).

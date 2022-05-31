@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Deploy
 
-After setting up environment, you can now deploy Metahkg using docker.
+After [setting up environment](/docs/category/set-up-environment), you can now deploy Metahkg using docker.
 
 We support:
 
@@ -47,4 +47,4 @@ $ yarn docker:prebuilt
 
 ## Metahkg is now deployed locally
 
-Metahkg is at localhost:3000 (if you didn't alter the port). To enable metahkg links and/or make your instance public, please [configure nginx](../nginx).
+Metahkg is at localhost:3000 (if you didn't alter the port). To enable metahkg links and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).

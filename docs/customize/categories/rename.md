@@ -20,7 +20,7 @@ Find the id of the one you want to rename.
 
 ## Rename
 
-**_WARNING:_** If you wish to rename [category 1](../category1), please use an appropriate name (e.g. `General`).
+**_WARNING:_** If you wish to rename [category 1](./category1), please use an appropriate name (e.g. `General`).
 
 ```javascript
 metahkg> db.category.updateOne({ id: <id> }, { $set: { name: "<new-category-name>" } })
