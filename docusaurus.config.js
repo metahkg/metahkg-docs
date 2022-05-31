@@ -63,7 +63,7 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://gitlab.com/metahkg/metahkg-docs',
+            href: 'https://gitlab.com/metahkg',
             label: 'GitLab',
             position: 'right',
           },
@@ -95,7 +95,7 @@ const config = {
             items: [
               {
                 label: 'GitLab',
-                href: 'https://github.com/metahkg/metahkg-docs',
+                href: 'https://gitlab.com/metahkg',
               },
             ],
           },
