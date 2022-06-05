@@ -34,7 +34,7 @@ pacman -Sy secure-delete
 # arch (with blackarch installed)
 ```
 
-## Use srm
+### Use srm
 
 ```bash
 srm -r ./metahkg-backup

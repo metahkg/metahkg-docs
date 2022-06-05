@@ -39,7 +39,9 @@ Otherwise, it is not.
 
 ### Hide
 
-**_WARNING:_** DO NOT hide [category 1](./category1), or the output might not be as expected!
+:::warning Warning
+DO NOT hide [category 1](./category1), or the output might not be as expected!
+:::
 
 ```javascript
 metahkg> db.category.updateOne({ id: <id> }, { $set: { hidden: true } })
