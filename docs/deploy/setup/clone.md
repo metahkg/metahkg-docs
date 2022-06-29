@@ -30,7 +30,7 @@ If you didn't use the --recurse-submodules flag when cloning, or you need to pul
 $ git pull --recurse-submodules
 # pull with submodules
 
-$ git submodule checkout dev
+$ git submodule foreach git checkout dev
 # check out a branch (dev or master)
 
 $ git submodule foreach git pull 
