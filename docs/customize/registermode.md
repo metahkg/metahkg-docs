@@ -2,15 +2,15 @@
 sidebar_position: 2
 ---
 
-# Sign up mode
+# Register mode
 
-You can set up sign up mode to restrict the sign up of users. By default, any one with a valid email can sign up.
+You can set up register mode to restrict the registration of users. By default, any one with a valid email can register.
 
 ## Modes
 
 ### Normal
 
-Anyone with a email can sign up.
+Anyone with a email can register.
 
 ### Invite
 
@@ -18,7 +18,7 @@ Anyone with a email can sign up.
 This feature has not been implemented yet on the frontend. Do not use until then.
 :::
 
-`signupmode=invite`
+`register=invite`
 
 Anyone with an invite code can sign up.
 
@@ -30,11 +30,11 @@ metahkg > db.invite.insertOne({ code: "<code>" });
 
 ### None
 
-`signupmode=none`
+`register=none`
 
 No one can sign up.
 
-## Configure sign up mode
+## Configure register mode
 
 ### Docker
 
@@ -49,7 +49,7 @@ nano docker/.env
 
 # find the line `signupmode`
 
-signupmode=<mode>
+register=<mode>
 ```
 
 ### Metahkg-server
@@ -65,5 +65,5 @@ nano metahkg-server/.env
 
 # find the line `signupmode`
 
-signupmode=<mode>
+register=<mode>
 ```
