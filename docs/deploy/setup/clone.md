@@ -27,12 +27,12 @@ $ git submodule foreach git pull
 If you didn't use the --recurse-submodules flag when cloning, or you need to pull a new submodule, you can do this:
 
 ```bash
-$ git pull --recurse-submodules
+$ git submodule update --init --recursive
 # pull with submodules
 
-$ git submodule checkout dev
+$ git submodule foreach git checkout dev
 # check out a branch (dev or master)
 
-$ git submodule foreach git pull 
+$ git submodule foreach git pull
 # update the submodules
 ```
