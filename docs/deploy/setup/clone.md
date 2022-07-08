@@ -7,18 +7,18 @@ sidebar_position: 2
 To clone the repository with the submodules:
 
 ```bash
-$ git clone --recurse-submodules https://gitlab.com/metahkg/metahkg.git
+git clone --recurse-submodules https://gitlab.com/metahkg/metahkg.git
 # you must clone the submodules
 
-$ cd metahkg
+cd metahkg
 
-$ git checkout dev
+git checkout dev
 # (or master)
 
-$ git submodule foreach git checkout dev
+git submodule foreach git checkout dev
 # check out a branch (dev or master)
 
-$ git submodule foreach git pull 
+git submodule foreach git pull 
 # update the submodules
 ```
 
@@ -27,12 +27,12 @@ $ git submodule foreach git pull
 If you didn't use the --recurse-submodules flag when cloning, or you need to pull a new submodule, you can do this:
 
 ```bash
-$ git submodule update --init --recursive
+git submodule update --init --recursive
 # pull with submodules
 
-$ git submodule foreach git checkout dev
+git submodule foreach git checkout dev
 # check out a branch (dev or master)
 
-$ git submodule foreach git pull
+git submodule foreach git pull
 # update the submodules
 ```

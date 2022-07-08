@@ -14,7 +14,7 @@ cp temp.env .env
 ## Edit varibles in .env according to the descriptions
 
 ```bash
-# .env
+# docker/.env
 
 port=3000
 # port that the whole thing runs on
@@ -41,9 +41,9 @@ mailgun_domain=
 LINKS_DOMAIN=l.metahkg.org
 # metahkg links domain
 
-signupmode=normal
+register=normal
 # "normal" | "invite" | "none"
-# https://docs.metahkg.org/customize/signupmode/
+# https://docs.metahkg.org/customize/registermode/
 
 REACT_APP_recaptchasitekey=<recaptcha-site-key>
 # recaptcha site key, must be a pair with recaptcha secret
@@ -64,5 +64,10 @@ env=
 # set this to dev to enable hot reload
 
 branch=master
-# select a branch (dev/master) for prebuilt images. If you use the normal build from source, ignore this.
+# select a branch for prebuilt images. If you use the normal build from source, ignore this.
+
+REACT_APP_IMAGES_API_URL=https://i.metahkg.org
+# metahkg images api url
+# see https://gitlab.com/metahkg/metahkg-images
+# default is https://i.metahkg.org
 ```

@@ -14,12 +14,17 @@ It is also possible to deploy Metahkg on macos, but NOT Windows.
 
 ### Git
 
-```bash
-$ sudo apt install git
-# ubuntu
+#### Ubuntu
 
-$ sudo pacman -Sy git
-# arch
+```bash
+sudo apt install git
+# ubuntu
+```
+
+#### Arch
+
+```bash
+sudo pacman -Sy git
 ```
 
 ### Nodejs & yarn
@@ -27,68 +32,77 @@ $ sudo pacman -Sy git
 #### Ubuntu
 
 ```bash
-$ curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 # use the nodesource setup script
 
-$ sudo apt install -y nodejs
+sudo apt install -y nodejs
 # install nodejs
 
-$ sudo corepack enable
+sudo corepack enable
 # enable yarn
 ```
 
 #### Arch
 
 ```bash
-$ sudo pacman -Sy nodejs
+sudo pacman -Sy nodejs
 # install nodejs
 
-$ sudo corepack enable
+sudo corepack enable
 # enable yarn
 ```
 
 ### Docker & docker-compose
 
-```bash
-$ sudo apt install docker.io docker-compose
-# ubuntu
+### Ubuntu
 
-$ sudo pacman -Sy docker docker-compose
-# arch
+```bash
+sudo apt install docker.io docker-compose
+```
+
+#### Arch
+
+```bash
+sudo pacman -Sy docker docker-compose
 ```
 
 ### Nginx
 
-```bash
-$ sudo apt install nginx
-# ubuntu
+#### Ubuntu
 
-$ sudo pacman -Sy nginx
-# arch
+```bash
+sudo apt install nginx
+```
+
+#### Arch
+
+```bash
+sudo pacman -Sy nginx
 ```
 
 ### Mongodb shell and database tools
 
 :::tip Optional
 This is now optional but still recommended. Required in many manual steps.
+Skip this for now if you just want to try out metahkg.
 :::
 
 #### Ubuntu (20.04)
 
 ```bash
-$ sudo apt install gnupg
+sudo apt install gnupg
 # install gnupg
 
-$ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 # import public key
 
-$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 # add mongodb apt repositories
 
-$ sudo apt update
+sudo apt update
 # update packages list
 
-$ sudo apt install mongodb-org-shell mongodb-org-tools
+sudo apt install mongodb-org-shell mongodb-org-tools
 # install mongosh and mongodb database tools
 ```
 
@@ -97,23 +111,23 @@ $ sudo apt install mongodb-org-shell mongodb-org-tools
 Install from [aur](https://aur.archlinux.org/).
 
 ```bash
-$ cd ~/Downloads
+cd ~/Downloads
 # go to downloads folder (or any other folders)
 
-$ git clone https://aur.archlinux.org/mongosh-bin.git
-$ git clone https://aur.archlinux.org/mongodb-tools-bin.git
+git clone https://aur.archlinux.org/mongosh-bin.git
+git clone https://aur.archlinux.org/mongodb-tools-bin.git
 # clone the aur repositories
 
-$ cd mongosh-bin
-$ makepkg -si
+cd mongosh-bin
+makepkg -si
 # install mongosh
 
-$ cd ../mongodb-tool-bin
-$ makepkg -si
+cd ../mongodb-tool-bin
+makepkg -si
 # install mongodb tools
 
-$ cd ..
-$ rm -rf mongodb-tools-bin mongosh-bin
+cd ..
+rm -rf mongodb-tools-bin mongosh-bin
 # remove the repositories after installation
 ```
 
