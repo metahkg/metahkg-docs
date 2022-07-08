@@ -54,7 +54,7 @@ sudo corepack enable
 
 ### Docker & docker-compose
 
-### Ubuntu
+#### Ubuntu
 
 ```bash
 sudo apt install docker.io docker-compose
