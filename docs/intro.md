@@ -1,4 +1,7 @@
-# Metahkg
+---
+sidebar_position: 1
+---
+# Introduction
 
 stable: [metahkg.org](https://metahkg.org)
 
