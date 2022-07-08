@@ -6,19 +6,39 @@ sidebar_position: 2
 
 After [setting up environment](/docs/category/set-up-environment), you can now deploy Metahkg using docker.
 
-We support:
+## Options
 
-- building images from source (default)
-- using prebuilt images
+You can:
+
+- build images from source (default)
+- build images from source, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui)
+- use prebuilt images
+- use prebuilt images, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui)
+
+## Mongo-express
+
+If you want to bundle with [mongo-express](https://github.com/mongo-express/mongo-express), make sure you have set `MONGO_EXPRESS_PORT` in .env (see [environmental variables](./setup/env.md)).
+
+After you deploy metahkg, you can access the mongo-express gui at `localhost:${MONGO_EXPRESS_PORT}`.
+
+The username as password are `$MONGO_USER` and `$MONGO_PASSWORD` as you configured in [environmental variables](./setup/env.md).
 
 ## Build from source
 
+### Normal
+
 ```bash
-$ yarn docker
+yarn docker
 # build and start the containers
 ```
 
-## Using prebuilt images
+### With mongo-express
+
+```bash
+yarn docker:express
+```
+
+## Use prebuilt images
 
 :::warning Warning
 The images are built on gitlab ci/cd and are pushed a few minutes after each commit. If you find the api and web app incompatible, try to redeploy a few minutes later.
@@ -38,11 +58,17 @@ You can use prebuilt images so you don't need to waste hardware building (given 
 
 Please add `branch=master` or `branch=dev` to docker/.env if you haven't to configure which branch of images you would like to use.
 
-### Start
+### Normal
 
 ```bash
-$ yarn docker:prebuilt
+yarn docker:prebuilt
 # pull the docker images and deploy
+```
+
+### With mongo-express
+
+```bash
+yarn docker:express-prebuilt
 ```
 
 ## Metahkg is now deployed locally
