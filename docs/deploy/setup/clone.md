@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Clone the repositories
+# Clone the repository
 
 To clone the repository with the submodules:
 
