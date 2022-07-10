@@ -11,7 +11,7 @@ We support:
 - arch linux
 - rhel / rocky linux
 
-However, it should work on other distributions, you can try translating the commands below.
+It should work on other distributions, you can try translating the commands below.
 
 It is also possible to deploy Metahkg on macos, but NOT Windows.
 :::
