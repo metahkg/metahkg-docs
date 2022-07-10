@@ -12,20 +12,24 @@ mongosh mongodb://<username>:<password>@localhost:30000/metahkg
 
 ## Check for categories
 
-```bash
-metahkg> db.category.find().pretty()
+```mongodb
+db.category.find().pretty()
 ```
 
 Use an id that does not exist yet in the next step.
 
 ## Insert
 
-```javascript
-metahkg> db.category.insertOne({ id: <newid>, name: "<new-category-name>" })
-// normal category
+### Normal
 
-metahkg> db.category.insertOne({ id: <newid>, name: "<new-category-name>", hidden: true })
-// hidden category
+```mongodb
+db.category.insertOne({ id: <newid>, name: "<new-category-name>" })
 ```
 
-Reload the app and you should now see the new category.
+### [Hidden](./hide)
+
+```mongodb
+db.category.insertOne({ id: <newid>, name: "<new-category-name>", hidden: true })
+```
+
+Refresh the app and you should now see the new category in the sidebar.

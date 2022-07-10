@@ -8,12 +8,26 @@ Please follow this if you want to use [let's encrypt](https://letsencrypt.org/) 
 
 ## Install certbot
 
-```bash
-$ sudo apt install certbot python3-certbot-nginx
-# ubuntu
+### Debian
 
-$ sudo pacman -Sy certbot certbot-nginx
-# arch
+```bash
+sudo apt install certbot python3-certbot-nginx
+```
+
+### Arch
+
+```bash
+sudo pacman -Sy certbot certbot-nginx
+```
+
+### RHEL
+
+```bash
+sudo dnf install python3 python3-pip
+# install pip
+
+sudo pip3 install certbot certbot-nginx
+# install certbot and certbot-nginx using pip
 ```
 
 ## Obtain a certificate
@@ -22,6 +36,6 @@ $ sudo pacman -Sy certbot certbot-nginx
 sudo certbot --nginx
 ```
 
-then follow the instructions, remember to enable redirect to https.
+follow the instructions, remember to enable redirect to https.
 
 Metahkg is now available on your domain.

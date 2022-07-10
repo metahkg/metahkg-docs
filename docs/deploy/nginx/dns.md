@@ -10,9 +10,7 @@ Point your domain to your server's ip address.
 
 - edit /etc/hosts, add a line at the end of the file
 
-```bash
-# /etc/hosts
-
+```bash title=/etc/hosts
 # ...
 
 127.0.0.1 example.com

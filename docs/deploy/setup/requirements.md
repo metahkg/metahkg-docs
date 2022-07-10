@@ -7,9 +7,9 @@ sidebar_position: 1
 :::tip Supported OSes
 We support:
 
-- debian / ubuntu
-- arch linux
-- rhel / rocky linux
+- Debian / Ubuntu
+- Arch Linux
+- RHEL / Rocky Linux
 
 It should work on other distributions, you can try translating the commands below.
 
@@ -24,7 +24,6 @@ It is also possible to deploy Metahkg on macos, but NOT Windows.
 
 ```bash
 sudo apt install git
-# ubuntu
 ```
 
 #### Arch
@@ -33,7 +32,7 @@ sudo apt install git
 sudo pacman -Sy git
 ```
 
-#### fedora
+#### RHEL
 
 ```bash
 sudo dnf install git
@@ -69,6 +68,7 @@ sudo corepack enable
 ```bash
 sudo dnf install nodejs
 # install nodejs
+
 sudo corepack enable
 # enable yarn
 ```
@@ -95,7 +95,7 @@ sudo dnf install docker docker-compose
 
 ### Nginx
 
-#### Ubuntu
+#### Debian
 
 ```bash
 sudo apt install nginx
@@ -164,7 +164,7 @@ rm -rf mongodb-tools-bin mongosh-bin
 # remove the repositories after installation
 ```
 
-### RHEL
+#### RHEL
 
 Add the mongodb repository:
 
@@ -172,9 +172,7 @@ Add the mongodb repository:
 nano /etc/yum.repos.d/mongodb-org-5.0.repo
 ```
 
-```ini
-# /etc/yum.repos.d/mongodb-org-5.0.repo
-
+```ini title=/etc/yum.repos.d/mongodb-org-5.0.repo
 [mongodb-org-5.0]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/
@@ -212,7 +210,7 @@ Metahkg needs two domains / subdomains, one for link shortening and one for the 
 If you are deploying locally only, you can use a domain that resolves to localhost
 ( e.g. `metahkg.test.wcyat.me` )
 
-Or, alternatively, configure the domain to resolve to localhost on your machine only:
+You can configure the domain to resolve to localhost on your machine only:
 
 ```bash
 sudo nano /etc/hosts
@@ -220,9 +218,7 @@ sudo nano /etc/hosts
 
 Append a line to /etc/hosts.
 
-```bash
-# /etc/hosts
-
+```bash title=/etc/hosts
 # ...
 
 127.0.0.1 example.com

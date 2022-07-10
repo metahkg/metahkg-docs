@@ -19,4 +19,4 @@ By default it is:
 }
 ```
 
-All posts (except of hidden categories) are considered part of this category.
+All threads (except of hidden categories) are considered part of this category.

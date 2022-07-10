@@ -23,32 +23,37 @@ There is a pair of self signed certificate and key on all ubuntu installations a
 
 ### Generate a pair of certificate and key
 
-- install openssh
+#### Install openssh
+
+##### Debian
 
 ```bash
 sudo apt install openssh
-# ubuntu
+```
 
+##### Arch
+
+```bash
 sudo pacman -Sy openssh
-# arch
 ```
 
-- generate certificate and key
+##### RHEL
 
 ```bash
-$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/selfsigned.key -out /etc/ssl/certs/selfsigned.crt
-# generate certicate and key using openssh
+sudo dnf install openssh
 ```
 
-Certificate:
+#### Generate certificate and key
 
 ```bash
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/selfsigned.key -out /etc/ssl/certs/selfsigned.crt
+```
+
+```text title=certificate
 /etc/ssl/certs/selfsigned.crt
 ```
 
-Key:
-
-```bash
+```text title=key
 /etc/ssl/private/selfsigned.key
 ```
 

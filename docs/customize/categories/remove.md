@@ -12,8 +12,8 @@ mongosh mongodb://<username>:<password>@localhost:30000/metahkg
 
 ## List the categories
 
-```javascript
-metahkg> db.category.find().pretty()
+```mongodb
+db.category.find().pretty()
 ```
 
 Find the id of the one you want to remove.
@@ -24,6 +24,6 @@ Find the id of the one you want to remove.
 DO NOT remove [category 1](./category1), or the output might not be as expected!
 :::
 
-```javascript
-metahkg> db.category.deleteOne({ id: <id> })
+```mongodb
+db.category.deleteOne({ id: <id> })
 ```

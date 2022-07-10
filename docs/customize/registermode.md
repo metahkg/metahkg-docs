@@ -24,46 +24,26 @@ Anyone with an invite code can sign up.
 
 To add invite codes:
 
-```javascript
-metahkg > db.invite.insertOne({ code: "<code>" });
+```mongodb
+db.invite.insertOne({ code: "<code>" });
 ```
 
 ### None
 
 `register=none`
 
-No one can sign up.
+No one can register.
 
 ## Configure register mode
-
-### Docker
 
 ```bash
 nano docker/.env
 ```
 
-```bash
-# docker/.env
-
+```bash title=docker/.env
 # ...
 
-# find the line `signupmode`
-
-register=<mode>
-```
-
-### Metahkg-server
-
-```bash
-nano metahkg-server/.env
-```
-
-```bash
-# metahkg-server/.env
-
-# ...
-
-# find the line `signupmode`
+# find the line `register`
 
 register=<mode>
 ```

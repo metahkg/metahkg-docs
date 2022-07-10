@@ -5,7 +5,7 @@ sidebar_position: 1
 
 stable: [metahkg.org](https://metahkg.org)
 
-dev build (probably daily): [dev.metahkg.org](https://dev.metahkg.org)
+dev build: [dev.metahkg.org](https://dev.metahkg.org)
 
 [![React](https://badges.aleen42.com/src/react.svg)](http://reactjs.org/)
 [![Nodejs](https://badges.aleen42.com/src/node.svg)](https://nodejs.org)
@@ -41,9 +41,13 @@ e.g. metahkg-server v2.5.1 would be compatibile with metahkg-api v2.5.x and meta
 
 ## Branches
 
-Two (or one) major versions are maintained at each time, one at the master branch and another at the dev branch. The version at dev branch is in development, and rather unstable, while that in master branch is considered stable but will only receive bug fixes until the next major version is ready. All new features are developed in dev branch.
+Two (or one) major versions are maintained at each time, one at the master branch and another at the dev branch.
 
-[metahkg.org](https://metahkg.org) runs the latest master branch code, while [dev.metahkg.org](https://dev.metahkg.org) runs the dev branch.
+The version at dev branch is in development, and rather unstable, while that in master branch is considered stable but will only receive bug fixes until the next major version is ready.
+
+All new features are developed in dev branch.
+
+[metahkg.org](https://metahkg.org) runs the latest master branch code, while [dev.metahkg.org](https://dev.metahkg.org) runs the latest dev branch code.
 
 ## Metahkg Api Wrapper
 

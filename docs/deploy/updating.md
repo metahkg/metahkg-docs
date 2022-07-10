@@ -8,9 +8,19 @@ You should check for updates regularly. (For bug fixes and feature updates.)
 
 ## Pull the repositories
 
+### Master
+
 ```bash
-git pull origin dev 
-# or master depending on your current branch
+git pull origin master
+
+git submodule foreach git pull
+# pull the submodules
+```
+
+### Dev
+
+```bash
+git pull origin dev
 
 git submodule foreach git pull
 # pull the submodules

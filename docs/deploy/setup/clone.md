@@ -2,7 +2,9 @@
 sidebar_position: 2
 ---
 
-# Clone the repository
+# Cloning
+
+## Clone the repository
 
 To clone the repository with the submodules:
 
@@ -11,12 +13,25 @@ git clone --recurse-submodules https://gitlab.com/metahkg/metahkg.git
 # you must clone the submodules
 
 cd metahkg
+```
 
+### Master
+
+```bash
+git checkout master
+
+git submodule foreach git checkout master
+
+git submodule foreach git pull 
+# update the submodules
+```
+
+### Dev
+
+```bash
 git checkout dev
-# (or master)
 
 git submodule foreach git checkout dev
-# check out a branch (dev or master)
 
 git submodule foreach git pull 
 # update the submodules

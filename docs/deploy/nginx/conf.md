@@ -16,7 +16,7 @@ sudo nano /etc/nginx/conf.d/metahkg.conf
 
 ## Self signed certificate, or you already have a certificate
 
-```conf
+```nginx
 # /etc/nginx/conf.d/metahkg.conf
 
 server {
@@ -54,7 +54,7 @@ server {
 
 ## Use [Let's encrypt](https://letsencrypt.org) for certificate
 
-```conf
+```nginx
 # /etc/nginx/conf.d/metahkg.conf
 
 server {
