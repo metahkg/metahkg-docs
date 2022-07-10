@@ -11,13 +11,13 @@ Assuming you configured the app to run on port 3000.
 Create a nginx configuration file:
 
 ```bash
-sudo nano /etc/nginx/sites-available/metahkg.conf
+sudo nano /etc/nginx/conf.d/metahkg.conf
 ```
 
 ## Self signed certificate, or you already have a certificate
 
-```nginx
-# /etc/nginx/sites-available/metahkg.conf
+```conf
+# /etc/nginx/conf.d/metahkg.conf
 
 server {
     server_name example.com;
@@ -52,10 +52,10 @@ server {
 }
 ```
 
-## Use Let's encrypt for certificate
+## Use [Let's encrypt](https://letsencrypt.org) for certificate
 
-```nginx
-# /etc/nginx/sites-available/example.com.conf
+```conf
+# /etc/nginx/conf.d/metahkg.conf
 
 server {
     server_name example.com;
@@ -76,12 +76,9 @@ server {
 ## Enable the site
 
 ```bash
-$ ln -s /etc/nginx/sites-available/metahkg.conf /etc/nginx/sites-enabled/
-# replace the filename with yours
-
-$ sudo systemctl reload nginx
+sudo systemctl reload nginx
 # reload nginx
 ```
 
 Metahkg is now available at your domain.
-If you use [let's encrypt](https://letsencrypt.org), follow the steps at [letsencrypt](./letsencrypt).
+If you want to use [let's encrypt](https://letsencrypt.org) for ssl certificate, follow the steps at [letsencrypt](./letsencrypt).
