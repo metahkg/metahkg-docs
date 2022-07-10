@@ -5,7 +5,13 @@ sidebar_position: 1
 # Requirements
 
 :::tip Supported OSes
-Officially, we only support Ubuntu and Arch Linux. It should work on other distributions, you can try translating the commands below.
+We support:
+
+- debian / ubuntu
+- arch linux
+- rhel / rocky linux
+
+However, it should work on other distributions, you can try translating the commands below.
 
 It is also possible to deploy Metahkg on macos, but NOT Windows.
 :::
@@ -14,7 +20,7 @@ It is also possible to deploy Metahkg on macos, but NOT Windows.
 
 ### Git
 
-#### Ubuntu
+#### Debian
 
 ```bash
 sudo apt install git
@@ -27,9 +33,15 @@ sudo apt install git
 sudo pacman -Sy git
 ```
 
+#### fedora
+
+```bash
+sudo dnf install git
+```
+
 ### Nodejs & yarn
 
-#### Ubuntu
+#### Debian
 
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
@@ -52,9 +64,18 @@ sudo corepack enable
 # enable yarn
 ```
 
+#### RHEL
+
+```bash
+sudo dnf install nodejs
+# install nodejs
+sudo corepack enable
+# enable yarn
+```
+
 ### Docker & docker-compose
 
-#### Ubuntu
+#### Debian
 
 ```bash
 sudo apt install docker.io docker-compose
@@ -64,6 +85,12 @@ sudo apt install docker.io docker-compose
 
 ```bash
 sudo pacman -Sy docker docker-compose
+```
+
+#### RHEL
+
+```bash
+sudo dnf install docker docker-compose
 ```
 
 ### Nginx
@@ -77,7 +104,13 @@ sudo apt install nginx
 #### Arch
 
 ```bash
-sudo pacman -Sy nginx
+sudo pacman -Sy nginx-mainline
+```
+
+#### RHEL
+
+```bash
+sudo dnf install nginx
 ```
 
 ### Mongodb shell and database tools
@@ -87,7 +120,7 @@ This is now optional but still recommended. Required in many manual steps.
 Skip this for now if you just want to try out metahkg.
 :::
 
-#### Ubuntu (20.04)
+#### Debian
 
 ```bash
 sudo apt install gnupg
@@ -96,7 +129,7 @@ sudo apt install gnupg
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 # import public key
 
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 # add mongodb apt repositories
 
 sudo apt update
@@ -129,6 +162,31 @@ makepkg -si
 cd ..
 rm -rf mongodb-tools-bin mongosh-bin
 # remove the repositories after installation
+```
+
+### RHEL
+
+Add the mongodb repository:
+
+```bash
+nano /etc/yum.repos.d/mongodb-org-5.0.repo
+```
+
+```ini
+# /etc/yum.repos.d/mongodb-org-5.0.repo
+
+[mongodb-org-5.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+```
+
+Install:
+
+```bash
+sudo dnf install mongodb-org-shell mongodb-org-tools
 ```
 
 ## Third party services
