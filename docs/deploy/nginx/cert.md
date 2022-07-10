@@ -12,7 +12,7 @@ Use a self-signed certificate if you are deploying locally.
 
 ### Ubuntu
 
-There is a pair of self signed certificate and key on all ubuntu installations.
+There is a pair of self signed certificate and key on all ubuntu installations already.
 
 ```bash
 /etc/ssl/certs/ssl-cert-snakeoil.pem
@@ -56,4 +56,4 @@ Key:
 
 Let's encrypt is a free certificate service.
 
-Please follow the configuration for [let's encrypt](https://letsencrypt.org/) at [conf](./conf), then see [letsencrypt](./letsencrypt).
+Please follow the [configuration for let's encrypt](./conf#use-lets-encrypt-for-certificate), then see [letsencrypt](./letsencrypt).
