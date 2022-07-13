@@ -64,6 +64,6 @@ const api = Api({
 ## Routes
 
 - /api
-  - /thread
-    - [GET /:id](./routes/thread) (get thread)
+  - [/thread](/docs/category/thread)
+    - [GET /:id](./routes/thread/get) (get thread)
     - [POST /create](./routes/thread/create) (create thread)
