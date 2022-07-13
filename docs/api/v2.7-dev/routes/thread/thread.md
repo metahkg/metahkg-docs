@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Thread
+# Get thread
 
-`GET /api/thread/:id`
+GET `/api/thread/:id`
 
 ## Authorization
 
@@ -22,8 +22,8 @@ Required if accessing a thread in a [hidden category](../../../../customize/cate
 
 | Query | Description                                                                                                                                                                       | Type                            | Schema         | Default                  | Required |
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------- | ------------------------ | -------- |
-| page  | page number, ignored if start and end are both specified                                                                                                                                                                      | integer                         | > 0            | 1                        | false    |
-| limit | limit of comments per page                                                                                                                                                        | integer                         | 1 - 50    | 25                       | false    |
+| page  | page number, ignored if start and end are both specified                                                                                                                          | integer                         | > 0            | 1                        | false    |
+| limit | limit of comments per page                                                                                                                                                        | integer                         | 1 - 50         | 25                       | false    |
 | sort  | sort comments by score / time / latest. `"time"` means sorting acsendingly by created time, `"latest"` is desceningly, `"score"` is sorting descendingly by `upvotes - downvotes` | `"score" \| "time" \| "latest"` | -              | `"time"`                 | false    |
 | start | starting from comment id                                                                                                                                                          | integer                         | > 0            | `(page - 1) * limit + 1` | false    |
 | end   | ending at comment id                                                                                                                                                              | integer                         | x >= start > 0 | `page * limit`           | false    |
@@ -33,7 +33,7 @@ Required if accessing a thread in a [hidden category](../../../../customize/cate
 ### Type
 
 ```typescript
-interface {
+interface getThreadResponse {
     id: number;
     pin?: Comment;
     op: User;
@@ -44,14 +44,14 @@ interface {
     category: number;
     lastModified: string;
     createdAt: string;
-    conversation: (Comment & {score: number})[];
+    conversation: (Comment & { score: number })[];
 }
 ```
 
 #### References
 
-- [Comment](../types/comment)
-- [User](../types/user)
+-   [Comment](../types/comment)
+-   [User](../types/user)
 
 #### Values
 
@@ -71,17 +71,20 @@ interface {
 
 ## Errors
 
-- `400` Bad request
-- `403` Permission denied
-- `404` Not found
+-   `400` Bad request.
+-   `403` Permission denied.
+-   `404` Not found.
 
 ## Examples
 
 ### Metahkg Api
 
+Also see [usage in metahkg-web](https://gitlab.com/metahkg/metahkg-web/-/blob/dev/src/components/conversation/functions/update.tsx#L31).
+
 ```typescript
 // note that page is ignored if start and end is both specified
-api.threads.get({ threadId: 1, page: 1, limit: 10, sort: "score", start: 1, end: 20 });
+api.threads
+    .get({ threadId: 1, page: 1, limit: 10, sort: "score", start: 1, end: 20 })
     .then(console.log)
     .catch(console.error);
 ```
@@ -90,10 +93,10 @@ api.threads.get({ threadId: 1, page: 1, limit: 10, sort: "score", start: 1, end:
 
 ```typescript
 fetch("/api/thread/1?page=1&start=1&end=20&sort=score&limit=10", {
-    "headers": {
-        "Authorization": `Bearer ${localStorage.getItem("token")}`,
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
-    "method": "GET",
-    "mode": "cors"
+    method: "GET",
+    mode: "cors",
 });
 ```

@@ -52,7 +52,7 @@ const api = Api({
     // choose a server or leave blank for /
     baseUrl: "https://metahkg.org",
     // user jwt token, leave blank if not logged in
-    token: "eyfcsgbsaabbdwqjog",
+    token: "<token>",
     // action to do upon new token received in headers
     setToken: (token: string) => {
         // set token
@@ -66,3 +66,4 @@ const api = Api({
 - /api
   - /thread
     - [GET /:id](./routes/thread) (get thread)
+    - [POST /create](./routes/thread/create) (create thread)
