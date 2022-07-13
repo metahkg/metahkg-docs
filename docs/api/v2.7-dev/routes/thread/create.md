@@ -55,7 +55,7 @@ interface CreateThreadResponse {
 
 ### Metahkg Api
 
-Also see [usage in metahkg-web](https://gitlab.com/metahkg/metahkg-web/-/blob/dev/src/pages/create.tsx#L107).
+Also see [usage in metahkg-web](https://gitlab.com/metahkg/metahkg-web/-/blob/2.7.0-dev/src/pages/create.tsx#L107).
 
 ```typescript
 api.threads
