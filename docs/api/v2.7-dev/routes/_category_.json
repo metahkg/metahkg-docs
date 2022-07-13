@@ -1,6 +1,6 @@
 {
-  "label": "Deploy Metahkg",
-  "position": 3,
+  "label": "Routes",
+  "position": 1,
   "link": {
     "type": "generated-index"
   }

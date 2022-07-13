@@ -8,7 +8,7 @@ sidebar_position: 1
 
 We use mongodump and mongorestore to backup and restore the database.
 
-- [install tutorial](/docs/deploy/setup/requirements#mongodb-shell-and-database-tools)
+- [install tutorial](../deploy/setup/requirements#mongodb-shell-and-database-tools)
 
 ## Using mongodump to backup the whole database
 
@@ -17,8 +17,6 @@ mongodump --uri=mongodb://<username>:<password>@localhost:<port> -d=metahkg -o=.
 ```
 
 Store the folder ./metahkg-backup in a SECURE LOCATION!
-
-I'd recommend you to zip and encrypt it before uploading it to a cloud storage.
 
 ## Shred
 
