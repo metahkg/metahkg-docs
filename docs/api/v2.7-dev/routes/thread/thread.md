@@ -1,10 +1,14 @@
+---
+sidebar_position: 1
+---
+
 # Thread
 
 `GET /api/thread/:id`
 
 ## Authorization
 
-Required if accessing a thread in a [hidden category](../../../customize/categories/hide).
+Required if accessing a thread in a [hidden category](../../../../customize/categories/hide).
 
 ## Request
 
@@ -46,8 +50,8 @@ interface {
 
 #### References
 
-- [Comment](../types/comment)
-- [User](../types/user)
+- [Comment](../../types/comment)
+- [User](../../types/user)
 
 #### Values
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Comment
 
 ## Type
@@ -52,7 +56,7 @@ type Comment =
 | comment | comment (in stringified html) | `string` | - |
 | text | comment converted to plain text | `string` | - |
 | createdAt | date string | `date iso string` | - |
-| slink | shortened link | `string \| undefined` | `https://${LINKS_DOMAIN}/${id}` |
+| slink | shortened link | `string \| undefined` | `https://<metahkg links domain>/<id>` |
 | D | number of downvotes | `integer` | - |
 | U | number of upvotes | `integer` | - |
 | quote | quoted comment | `Comment \| undefined` | - |

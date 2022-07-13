@@ -26,7 +26,7 @@ We support authorization based on json web token.
 
 Please configure the `Authorization` header to be `Bearer <token>`.
 
-You can get a token by [logging in](./users/login) or after you have [verified your account](./users/verify).
+You can get a token by logging in or after you have verified your account.
 
 The token expires in 7 days.
 
@@ -65,4 +65,4 @@ const api = Api({
 
 - /api
   - /thread
-    - [GET /:id](./thread/thread) (thread info)
+    - [GET /:id](./routes/thread) (get thread)
