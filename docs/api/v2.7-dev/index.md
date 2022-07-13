@@ -42,7 +42,7 @@ You can use the metahkg api wrapper to use the metahkg api easily.
 Authorization is managed.
 
 ```bash
-yarn add metahkg-api@2.6.0-3-dev
+yarn add metahkg-api@2.7.0-dev
 ```
 
 ```typescript
