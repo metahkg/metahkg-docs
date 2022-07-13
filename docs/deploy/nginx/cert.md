@@ -14,11 +14,12 @@ Use a self-signed certificate if you are deploying locally.
 
 There is a pair of self signed certificate and key on all ubuntu installations already.
 
-```bash
+```text title=cert
 /etc/ssl/certs/ssl-cert-snakeoil.pem
-# cert
+```
+
+```text title=key
 /etc/ssl/private/ssl-cert-snakeoil.key
-# key
 ```
 
 ### Generate a pair of certificate and key

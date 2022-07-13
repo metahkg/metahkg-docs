@@ -16,9 +16,7 @@ sudo nano /etc/nginx/conf.d/metahkg.conf
 
 ## Self signed certificate, or you already have a certificate
 
-```nginx
-# /etc/nginx/conf.d/metahkg.conf
-
+```nginx title=/etc/nginx/conf.d/metahkg.conf
 server {
     server_name example.com;
     # replace example.com with your domain
@@ -33,7 +31,7 @@ server {
     ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
     # replace with your private key
 
-    
+
     location / {
         proxy_set_header Host $host;
         proxy_pass http://localhost:3000;
@@ -54,9 +52,7 @@ server {
 
 ## Use [Let's encrypt](https://letsencrypt.org) for certificate
 
-```nginx
-# /etc/nginx/conf.d/metahkg.conf
-
+```nginx title=/etc/nginx/conf.d/metahkg.conf
 server {
     server_name example.com;
     # replace example.com with your domain
@@ -73,11 +69,10 @@ server {
 }
 ```
 
-## Enable the site
+## Reload nginx
 
 ```bash
 sudo systemctl reload nginx
-# reload nginx
 ```
 
 Metahkg is now available at your domain.
