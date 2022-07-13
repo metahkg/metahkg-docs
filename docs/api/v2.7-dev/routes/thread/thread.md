@@ -50,8 +50,8 @@ interface {
 
 #### References
 
-- [Comment](../../types/comment)
-- [User](../../types/user)
+- [Comment](../types/comment)
+- [User](../types/user)
 
 #### Values
 
