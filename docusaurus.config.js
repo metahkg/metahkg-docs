@@ -40,10 +40,7 @@ const config = {
                     editUrl: "https://gitlab.com/metahkg/metahkg-docs/-/tree/master/",
                 },
                 theme: {
-                    customCss: [
-                        require.resolve("./src/css/custom.css"),
-                        require.resolve("swagger-ui-react/swagger-ui.css"),
-                    ],
+                    customCss: [require.resolve("./src/css/custom.css")],
                 },
             }),
         ],
