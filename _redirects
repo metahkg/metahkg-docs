@@ -1,2 +1,13 @@
 /docker /docs/category/deploy-metahkg 301
-/*/ /:splat 301
+/:a/ /:b 301
+/:a/:b/ /:a/:b 301
+/:a/:b/:c/ /:a/:b/:c 301
+/:a/:b/:c/:d/ /:a/:b/:c/:d 301
+/:a/:b/:c/:d/:e/ /:a/:b/:c/:d/:e 301
+/:a/:b/:c/:d/:e/:f/ /:a/:b/:c/:d/:e/:f 301
+/:a/:b/:c/:d/:e/:f/:g/ /:a/:b/:c/:d/:e/:f/:g 301
+/:a/:b/:c/:d/:e/:f/:g/:h/ /:a/:b/:c/:d/:e/:f/:g/:h 301
+/:a/:b/:c/:d/:e/:f/:g/:h/:i/ /:a/:b/:c/:d/:e/:f/:g/:h/:i 301
+/:a/:b/:c/:d/:e/:f/:g/:h/:i/:j/ /:a/:b/:c/:d/:e/:f/:g/:h/:i/:j 301
+/:a/:b/:c/:d/:e/:f/:g/:h/:i/:j/:k/ /:a/:b/:c/:d/:e/:f/:g/:h/:i/:j/:k 301
+/:a/:b/:c/:d/:e/:f/:g/:h/:i/:j/:k/:l/ /:a/:b/:c/:d/:e/:f/:g/:h/:i/:j/:k/:l 301
