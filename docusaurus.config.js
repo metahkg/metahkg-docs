@@ -39,7 +39,10 @@ const config = {
                     editUrl: "https://gitlab.com/metahkg/metahkg-docs/-/tree/master/",
                 },
                 theme: {
-                    customCss: require.resolve("./src/css/custom.css"),
+                    customCss: [
+                        require.resolve("./src/css/custom.css"),
+                        require.resolve("swagger-ui-react/swagger-ui.css"),
+                    ],
                 },
             }),
         ],
@@ -48,6 +51,13 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            themeConfig: {
+                colorMode: {
+                    defaultMode: "light",
+                    disableSwitch: false,
+                    respectPrefersColorScheme: true,
+                },
+            },
             navbar: {
                 title: "Metahkg Docs",
                 logo: {

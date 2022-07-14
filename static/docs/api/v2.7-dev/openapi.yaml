@@ -1,0 +1,264 @@
+openapi: 3.0.0
+info:
+  version: "2.7"
+  title: Metahkg Api
+  description:
+    "Metahkg's api is a rest api written in fastify/typescript. The database used is MongoDB.
+    Json is returned on every request. In this documentation, the base url is /api."
+  contact:
+    email: wcyat@wcyat.me
+  license:
+    name: AGPL-3.0-or-later
+    url: https://gitlab.com/metahkg/metahkg-server/-/blob/master/LICENSE
+tags:
+  - name: thread
+    description: thread operations
+  - name: users
+    description: account operations
+  - name: profile
+    description: profile operations
+paths:
+  /thread/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - thread
+      summary: Get thread
+      description: Get a selection of comments and other data from a thread.
+      operationId: getThread
+      parameters:
+        - in: path
+          name: id
+          description: thread id
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+        - in: query
+          name: page
+          description: Page number. Ignored if start and end both specified.
+          required: false
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            default: 1
+        - in: query
+          name: limit
+          description: Limit of threads per page.
+          required: false
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 50
+            default: 25
+        - in: query
+          name: sort
+          description: 'Sort comments by score / time / latest.
+            "time" means sorting acsendingly by created time,
+            "latest" means desceningly,
+            "score" means sorting descendingly by `upvotes - downvotes`'
+          required: false
+          schema:
+            type: string
+            enum:
+              - score
+              - time
+              - latest
+            default: time
+        - in: query
+          name: start
+          description: "Starting from comment id.
+            If end is specified but start is not,
+            start default to `(page - 1) * limit + 1`"
+          required: false
+          schema:
+            type: string
+            format: int64
+            minimum: 1
+        - in: query
+          name: end
+          description: 'Ending at comment id.
+            Must be greater or equal to start.
+            If start is specified but end is not,
+            end defaults to `page * limit`'
+          required: false
+          schema:
+            type: string
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Thread"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: "Thread not found"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+externalDocs:
+  url: https://docs.metahkg.org
+  description: Metahkg Docs
+
+servers:
+  - url: https://dev.metahkg.org/api
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: error message
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 1
+          format: int64
+          description: user id
+        name:
+          type: string
+          description: User name
+        sex:
+          type: string
+          enum:
+            - M
+            - F
+        createdAt:
+          type: string
+          format: date-time
+          description: date when user was created
+    Comment:
+      anyOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              minimum: 0
+            removed:
+              type: boolean
+              enum:
+                - true
+        - type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              minimum: 1
+            user:
+              description: user created the comment
+              allOf:
+                - $ref: "#/components/schemas/User"
+            comment:
+              type: string
+              description: comment in stringified html
+            text:
+              type: string
+              description: comment converted to plain text
+            createdAt:
+              type: string
+              format: date-time
+            slink:
+              type: string
+              description: shortened link to the comment
+            quote:
+              nullable: true
+              allOf:
+                - $ref: "#/components/schemas/Comment"
+            D:
+              nullable: true
+              type: integer
+              format: int64
+              minimum: 0
+              description: number of downvotes
+            U:
+              nullable: true
+              type: integer
+              format: int64
+              minimum: 0
+              description: number of downvotes
+            replies:
+              nullable: true
+              type: array
+              items:
+                type: integer
+                minimum: 1
+                format: int64
+              description: list of comment ids that are replies to this comment
+    Thread:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          minimum: 1
+          description: thread id
+        title:
+          type: string
+        category:
+          type: number
+          format: int64
+          minimum: 1
+          description: category id
+        op:
+          $ref: "#/components/schemas/User"
+        c:
+          type: integer
+          format: int64
+          minimum: 1
+          description: number of comments in the thread
+        conversation:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/Comment"
+              - type: object
+                properties:
+                  score:
+                    type: integer
+                    format: int64
+                    description: score of the comment (`upvotes - downvotes`)
+        createdAt:
+          type: string
+          format: date-time
+          description: date when thread was created
+        lastModified:
+          type: string
+          format: date-time
+          description: date when thread was last modified
+        slink:
+          type: string
+          description: shortened link to the thread
+        pin:
+          description: pinned comment
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/Comment"
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
