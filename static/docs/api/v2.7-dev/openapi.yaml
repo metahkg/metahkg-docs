@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: "2.7"
+  version: "2.7-dev"
   title: Metahkg Api
   description:
     "Metahkg's api is a rest api written in fastify/typescript. The database used is MongoDB.
@@ -204,6 +204,9 @@ components:
         name:
           type: string
           description: User name
+          example: "John Doe"
+          minLength: 1
+          maxLength: 15
         sex:
           type: string
           enum:
@@ -224,6 +227,7 @@ components:
         name:
           type: string
           description: category name
+          example: "Chit-chat"
     RemovedComment:
       type: object
       properties:
@@ -244,7 +248,7 @@ components:
           minimum: 1
         user:
           description: user created the comment
-          allOf:
+          anyOf:
             - $ref: "#/components/schemas/User"
         comment:
           type: string
@@ -259,12 +263,25 @@ components:
           format: date-time
         slink:
           type: string
+          format: uri
           description: shortened link to the comment
+          example: "https://l.metahkg.org/p994Nw2"
         quote:
           nullable: true
-          description: A comment object.
-          allOf:
+          description: The whole comment object of the quoted comment.
+          anyOf:
             - $ref: "#/components/schemas/Comment"
+          example:
+            id: 1
+            user:
+              id: 1
+              name: "John Doe"
+              sex: "M"
+              createdAt: "2020-01-01T00:00:00Z"
+            comment: "<p>This is a comment</p>"
+            text: "This is a comment"
+            createdAt: "2020-01-01T00:00:00Z"
+            slink: "https://l.metahkg.org/p994Nw2"
         D:
           nullable: true
           type: integer
@@ -303,9 +320,10 @@ components:
           type: integer
           format: int64
           minimum: 1
-          description: number of comments in the thread
+          description: number of comments in the thread (i.e. `conversation.length`)
         conversation:
           type: array
+          description: An array of comments. Comment ids must not be duplicated.
           items:
             anyOf:
               - $ref: "#/components/schemas/RemovedComment"
@@ -328,14 +346,16 @@ components:
         slink:
           type: string
           description: shortened link to the thread
+          example: "https://l.metahkg.org/1"
         pin:
           description: pinned comment
           nullable: true
-          allOf:
+          anyOf:
             - $ref: "#/components/schemas/Comment"
     rtoken:
       type: string
       description: Recaptcha token. See https://developers.google.com/recaptcha/docs/verify.
+      example: "6LeIxAcTAAAAAJcZVRqd76R7tjHpI9u0tRwxV5ksM"
   securitySchemes:
     bearerAuth:
       type: http
