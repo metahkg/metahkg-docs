@@ -8,18 +8,6 @@ title: v2.7 (dev)
 Metahkg's api is a rest api written in fastify/typescript. The database used is MongoDB.
 Json is returned on every request.
 
-## Errors
-
-An error code would be returned if the request failed.
-
-The response json would be:
-
-```typescript
-{
-    error: string;
-}
-```
-
 ## Authorization
 
 We support authorization based on json web token.
@@ -38,7 +26,7 @@ The response header `token` would be the new token.
 
 ## Api wrapper
 
-You can use the metahkg api wrapper to use the metahkg api easily.
+We maintain an api wrapper.
 Authorization is managed.
 
 ```bash
@@ -67,3 +55,7 @@ const api = Api({
   - [/thread](/docs/category/thread)
     - [GET /:id](./v2.7-dev/routes/thread/get) (get thread)
     - [POST /create](./v2.7-dev/routes/thread/create) (create thread)
+
+## Openapi
+
+See [openapi docs](./openapi).
