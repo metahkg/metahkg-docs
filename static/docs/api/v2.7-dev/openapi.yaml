@@ -115,6 +115,69 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /thread/create:
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - thread
+      summary: Create thread
+      description: Create a thread. Authentication is required.
+      operationId: createThread
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - comment
+                - rtoken
+                - category
+              properties:
+                title:
+                  $ref: "#/components/schemas/Thread/properties/title"
+                comment:
+                  $ref: "#/components/schemas/Comment/properties/comment"
+                rtoken:
+                  $ref: "#/components/schemas/rtoken"
+                category:
+                  $ref: "#/components/schemas/Category/properties/id"
+      responses:
+        "200":
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    $ref: "#/components/schemas/Thread/properties/id"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: "Category not found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "429":
+          description: "Recaptcha token invalid"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
 externalDocs:
   url: https://docs.metahkg.org
   description: Metahkg Docs
@@ -150,13 +213,24 @@ components:
           type: string
           format: date-time
           description: date when user was created
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 1
+          format: int64
+          description: category id
+        name:
+          type: string
+          description: category name
     RemovedComment:
       type: object
       properties:
         id:
           type: integer
           format: int64
-          minimum: 0
+          minimum: 1
         removed:
           type: boolean
           enum:
@@ -175,9 +249,11 @@ components:
         comment:
           type: string
           description: comment in stringified html
+          example: "<p>This is a comment</p>"
         text:
           type: string
           description: comment converted to plain text
+          example: "This is a comment"
         createdAt:
           type: string
           format: date-time
@@ -200,7 +276,7 @@ components:
           type: integer
           format: int64
           minimum: 0
-          description: number of downvotes
+          description: number of upvotes
         replies:
           nullable: true
           type: array
@@ -220,10 +296,7 @@ components:
         title:
           type: string
         category:
-          type: number
-          format: int64
-          minimum: 1
-          description: category id
+          $ref: "#/components/schemas/Category/properties/id"
         op:
           $ref: "#/components/schemas/User"
         c:
@@ -260,6 +333,9 @@ components:
           nullable: true
           allOf:
             - $ref: "#/components/schemas/Comment"
+    rtoken:
+      type: string
+      description: Recaptcha token. See https://developers.google.com/recaptcha/docs/verify.
   securitySchemes:
     bearerAuth:
       type: http
