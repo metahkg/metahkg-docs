@@ -312,6 +312,8 @@ components:
           description: thread id
         title:
           type: string
+          description: thread title
+          example: "Hello world"
         category:
           $ref: "#/components/schemas/Category/properties/id"
         op:
