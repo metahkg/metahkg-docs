@@ -12,7 +12,7 @@ const config = {
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/favicon.ico",
+    favicon: "images/favicon.ico",
     trailingSlash: false,
 
     // GitHub pages deployment config.
@@ -60,7 +60,7 @@ const config = {
                 title: "Metahkg Docs",
                 logo: {
                     alt: "Metahkg Logo",
-                    src: "img/logo.png",
+                    src: "images/logo.png",
                 },
                 items: [
                     {
