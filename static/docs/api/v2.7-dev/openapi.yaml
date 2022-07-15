@@ -3,13 +3,21 @@ info:
   version: "2.7-dev"
   title: Metahkg Api
   description:
-    "Metahkg's api is a rest api written in fastify/typescript. The database used is MongoDB.
-    Json is returned on every request. In this documentation, the base url is /api."
+    "The Metahkg Api is a REST api written in fastify/typescript, with MongoDB as the database.
+    <br>
+    Json is returned on every request.
+    <br>
+    In this documentation, the base url is /api."
   contact:
     email: wcyat@wcyat.me
   license:
     name: AGPL-3.0-or-later
-    url: https://gitlab.com/metahkg/metahkg-server/-/blob/master/LICENSE
+    url: https://gitlab.com/metahkg/metahkg-server/-/blob/master/LICENSE.md
+
+externalDocs:
+  url: https://gitlab.com/metahkg/metahkg-server
+  description: Server source code
+
 tags:
   - name: thread
     description: thread operations
@@ -177,10 +185,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-
-externalDocs:
-  url: https://docs.metahkg.org
-  description: Metahkg Docs
 
 servers:
   - url: https://dev.metahkg.org/api
