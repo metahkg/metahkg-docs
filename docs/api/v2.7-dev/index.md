@@ -58,4 +58,4 @@ const api = Api({
 
 ## Openapi
 
-See [openapi docs](./openapi).
+See [openapi docs](./v2.7-dev/openapi).
