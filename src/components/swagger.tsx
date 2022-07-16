@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SwaggerUI from "swagger-ui";
+import SwaggerUI from "swagger-ui-react";
 import { Box } from "@mui/material";
 import { useColorMode } from "@docusaurus/theme-common";
 import { Helmet } from "react-helmet";
@@ -8,25 +8,13 @@ export default function Swagger(props: { url: string }) {
     const { url } = props;
     const { colorMode } = useColorMode();
 
-    useEffect(() => {
-        const ui = SwaggerUI({
-            url,
-            dom_id: "#swagger",
-        });
-
-        ui.initOAuth({
-            appName: "Metahkg Api",
-            clientId: "implicit",
-        });
-    }, [url]);
-
     return (
         <React.Fragment>
             <Helmet>
                 <link
                     rel="stylesheet"
                     type="text/css"
-                    href="https://cdn.jsdelivr.net/npm/swagger-ui@latest/dist/swagger-ui.css"
+                    href="https://cdn.jsdelivr.net/npm/swagger-ui-react@latest/swagger-ui.css"
                 />
                 {colorMode === "dark" && (
                     <link
@@ -38,12 +26,16 @@ export default function Swagger(props: { url: string }) {
             </Helmet>
             <Box
                 sx={{
-                    "& *": {
-                        backgroundColor: "unset",
+                    "& svg": {
+                        ...(colorMode === "dark" && { fill: "white" }),
                     },
+                    "& .version": {
+                        backgroundColor: "unset"
+                    }
                 }}
-                id="swagger"
-            />
+            >
+                <SwaggerUI url={url} />
+            </Box>
         </React.Fragment>
     );
 }
