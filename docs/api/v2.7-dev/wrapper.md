@@ -13,18 +13,18 @@ Latest version is compatible with the master branch of [metahkg-server](https://
 
 Dev version compatible with dev branch.
 
-## Installing
+## Install
 
-### Latest
+### Yarn
 
 ```bash
-yarn add metahkg-api@latest
+yarn add metahkg-api@2.7.0-dev
 ```
 
-### Dev
+### NPM
 
 ```bash
-yarn add metahkg-api@dev
+npm i metahkg-api@2.7.0-dev
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ import Api from "metahkg-api";
 
 const api = Api({
     // choose a server or leave blank for /
-    baseUrl: "https://metahkg.org",
+    baseUrl: "https://dev.metahkg.org",
     // user jwt token, leave blank if not logged in
     token: "<token>",
     // action to do upon new token received in headers
