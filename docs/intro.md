@@ -49,11 +49,16 @@ All new features are developed in dev branch.
 
 [metahkg.org](https://metahkg.org) runs the latest master branch code, while [dev.metahkg.org](https://dev.metahkg.org) runs the latest dev branch code.
 
+## Api docs
+
+See [here](/docs/category/api) for the api docs.
+
 ## Metahkg Api Wrapper
 
 We have an api wrapper [here](https://gitlab.com/metahkg/metahkg-api) (in metahkg-api), for easily accessing the api. Please use the api wrapper with a same major version of metahkg-server.
 
 ## Getting Started
+
 
 Get started by trying a [deployment](./deploy).
 

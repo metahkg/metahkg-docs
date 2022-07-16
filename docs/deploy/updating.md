@@ -39,7 +39,7 @@ cd metahkg-server
 ```bash
 version=$(node -e "console.log(require(\"./package.json\").version)")
 filename="src/migrate/v$(node -e "console.log('${version}'.split('.').slice(0,2).join('.'))")/v${version}.ts"
-if [ test -f "src/migrate/v$(node -e "console.log('${version}'.split('.').slice(0,2).join('.'))")/v${version}.ts" ]; then echo "Found migrate script"; else echo "No migrate script found"; fi
+if [ -f "${filename}" ]; then echo "Found migrate script"; else echo "No migrate script found"; fi
 ```
 
 If migrate script is found, proceed, or else skip this and go to [rebuild docker](#rebuild-docker).
