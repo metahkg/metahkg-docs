@@ -55,7 +55,7 @@ paths:
             default: 1
         - in: query
           name: limit
-          description: Limit of threads per page.
+          description: Limit of comments per page.
           required: false
           schema:
             type: integer
