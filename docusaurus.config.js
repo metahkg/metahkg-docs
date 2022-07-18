@@ -49,12 +49,10 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
-            themeConfig: {
-                colorMode: {
-                    defaultMode: "light",
-                    disableSwitch: false,
-                    respectPrefersColorScheme: true,
-                },
+            colorMode: {
+                defaultMode: "dark",
+                disableSwitch: false,
+                respectPrefersColorScheme: true,
             },
             navbar: {
                 title: "Metahkg Docs",
