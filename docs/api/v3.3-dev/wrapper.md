@@ -18,13 +18,13 @@ Dev version compatible with dev branch.
 ### Yarn
 
 ```bash
-yarn add metahkg-api@3.2.0-dev
+yarn add metahkg-api@3.3.0-dev
 ```
 
 ### NPM
 
 ```bash
-npm i metahkg-api@3.2.0-dev
+npm i metahkg-api@3.3.0-dev
 ```
 
 ## Usage
