@@ -10,10 +10,11 @@ We support:
 - Debian / Ubuntu
 - Arch Linux
 - RHEL / Rocky Linux
+- MacOS (with [brew](https://brew.sh/) installed)
 
 It should work on other distributions, you can try translating the commands below.
 
-It is also possible to deploy Metahkg on macos, but NOT Windows.
+We offer no support for Windows.
 :::
 
 ## Local
@@ -36,6 +37,12 @@ sudo pacman -Sy git
 
 ```bash
 sudo dnf install git
+```
+
+#### MacOS
+
+```bash
+brew install git
 ```
 
 ### Nodejs & yarn
@@ -73,6 +80,12 @@ sudo corepack enable
 # enable yarn
 ```
 
+#### MacOS
+
+```bash
+brew install nodejs yarn
+```
+
 ### Docker & docker-compose
 
 #### Debian
@@ -91,6 +104,12 @@ sudo pacman -Sy docker docker-compose
 
 ```bash
 sudo dnf install docker docker-compose
+```
+
+#### MacOS
+
+```bash
+brew install docker docker-compose
 ```
 
 ### Nginx
@@ -113,6 +132,12 @@ sudo pacman -Sy nginx-mainline
 sudo dnf install nginx
 ```
 
+#### MacOS
+
+```bash
+brew install nginx
+```
+
 ### Mongodb shell and database tools
 
 :::tip Optional
@@ -126,11 +151,11 @@ Skip this for now if you just want to try out metahkg.
 sudo apt install gnupg
 # install gnupg
 
-wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
 # import public key
 
-echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
-# add mongodb apt repositories
+echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/6.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+# add mongodb apt repository
 
 sudo apt update
 # update packages list
@@ -169,22 +194,33 @@ rm -rf mongodb-tools-bin mongosh-bin
 Add the mongodb repository:
 
 ```bash
-nano /etc/yum.repos.d/mongodb-org-5.0.repo
+nano /etc/yum.repos.d/mongodb-org-6.0.repo
 ```
 
-```ini title=/etc/yum.repos.d/mongodb-org-5.0.repo
-[mongodb-org-5.0]
+```ini title=/etc/yum.repos.d/mongodb-org-6.0.repo
+[mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
 ```
 
 Install:
 
 ```bash
 sudo dnf install mongodb-org-shell mongodb-org-tools
+```
+
+#### MacOS
+
+```bash
+brew tap mongodb/brew
+# add mongodb formula repository
+
+brew update
+
+brew install mongodb-database-tools mongodb-community-shell
 ```
 
 ## Third party services
