@@ -67,6 +67,9 @@ env=
 branch=master
 # select a branch for prebuilt images. If you use the normal build from source, ignore this.
 
+version=latest
+# select a major or minor version for prebuilt images (e.g. 4, 4.0)
+
 REACT_APP_IMAGES_API_URL=https://i.metahkg.org
 # metahkg images api url
 # see https://gitlab.com/metahkg/metahkg-images
