@@ -234,8 +234,7 @@ brew install mongodb-database-tools mongodb-community-shell
 You don't need a domain to test or deploy locally. See below.
 :::
 
-Metahkg needs two domains / subdomains, one for link shortening and one for the web app and api.
-
+Metahkg needs three domains / subdomains, for the web app and api, link shortening, and images processing/proxy.
 - [cloudflare](https://developers.cloudflare.com/registrar/get-started/register-domain/)
 - [namecheap](https://www.namecheap.com/)
 - You can get a [free domain](https://nc.me/) from namecheap if you are a student
@@ -243,8 +242,8 @@ Metahkg needs two domains / subdomains, one for link shortening and one for the 
 
 ### Deploying locally
 
-If you are deploying locally only, you can use a domain that resolves to localhost
-( e.g. `metahkg.test.wcyat.me` )
+If you are deploying locally only, you can use domains that resolves to localhost
+( e.g. `*.test.wcyat.me` )
 
 You can configure the domain to resolve to localhost on your machine only:
 
@@ -258,4 +257,6 @@ Append a line to /etc/hosts.
 # ...
 
 127.0.0.1 example.com
+127.0.0.1 l.example.com
+127.0.0.1 i.example.com
 ```

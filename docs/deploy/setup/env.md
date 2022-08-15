@@ -32,15 +32,21 @@ MONGO_EXPRESS_PORT=8081
 domain=metahkg.org
 # please change to your domain name
 
+LINKS_DOMAIN=l.metahkg.org
+# metahkg links domain
+# automatically deployed
+
+IMAGES_DOMAIN=i.metahkg.org
+# images proxy domain
+# https://github.com/willnorris/imageproxy
+# automatically deployed
+
 mailgun_key=<mailgun-api-key>
 # mailgun api key: obtain one at https://mailgun.com,
 # the flex plan is free (with a limit of about 7000 emails)
 
 mailgun_domain=
 # mailgun domain, if different from the domain
-
-LINKS_DOMAIN=l.metahkg.org
-# metahkg links domain
 
 register=normal
 # "normal" | "invite" | "none"
@@ -61,7 +67,7 @@ COMPOSE_PROJECT_NAME=
 cors=
 # give some value (e.g. true) to this to support cors
 
-env=
+env=production
 # set this to dev to enable hot reload
 
 branch=master
@@ -69,9 +75,4 @@ branch=master
 
 version=latest
 # select a major or minor version for prebuilt images (e.g. 4, 4.0)
-
-REACT_APP_IMAGES_API_URL=https://i.metahkg.org
-# metahkg images api url
-# see https://gitlab.com/metahkg/metahkg-images
-# default is https://i.metahkg.org
 ```
