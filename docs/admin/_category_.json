@@ -1,6 +1,6 @@
 {
-  "label": "Customize",
-  "position": 5,
+  "label": "Admin",
+  "position": 4,
   "link": {
     "type": "generated-index"
   }
