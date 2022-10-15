@@ -235,6 +235,7 @@ You don't need a domain to test or deploy locally. See below.
 :::
 
 Metahkg needs three domains / subdomains, for the web app and api, link shortening, and images processing/proxy.
+
 - [cloudflare](https://developers.cloudflare.com/registrar/get-started/register-domain/)
 - [namecheap](https://www.namecheap.com/)
 - You can get a [free domain](https://nc.me/) from namecheap if you are a student
