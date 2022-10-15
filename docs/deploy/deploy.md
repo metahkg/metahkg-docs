@@ -12,7 +12,7 @@ You can:
 
 - build images from source (default)
 - build images from source, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui)
-- use prebuilt images
+- use prebuilt images (no need to wait for building, but less customizations)
 - use prebuilt images, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui)
 
 ## Mongo-express
@@ -45,14 +45,22 @@ The images are built on gitlab ci/cd and are pushed a few minutes after each com
 :::
 
 :::tip Tags
-The images follow a rolling release (new images are built every commit). There is ONLY ONE TAG (latest) that is maintained. Other than latest, there are tags with the name being the commit hash. They are used for testing purpose only.
+New images are built every commit.
+
+Some tags are maintained:
+
+- latest
+- major versions (e.g. 5)
+- minor versions (e.g. 5.0)
+
+There are also tags with the name being the commit hash. They are used for testing purpose only.
 :::
 
 :::tip Nginx container
 The nginx container is still built locally since it is just some copying of files.
 :::
 
-You can use prebuilt images so you don't need to waste hardware building (given that your machine might crash due to high memory usage).
+You can use prebuilt images so you don't need to waste time building (given that your machine might crash due to high memory usage).
 
 ### Environment
 

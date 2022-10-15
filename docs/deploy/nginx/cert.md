@@ -24,24 +24,24 @@ There is a pair of self signed certificate and key on all ubuntu installations a
 
 ### Generate a pair of certificate and key
 
-#### Install openssh
+#### Install openssl
 
 ##### Debian
 
 ```bash
-sudo apt install openssh
+sudo apt install openssl
 ```
 
 ##### Arch
 
 ```bash
-sudo pacman -Sy openssh
+sudo pacman -Sy openssl
 ```
 
 ##### RHEL
 
 ```bash
-sudo dnf install openssh
+sudo dnf install openssl
 ```
 
 #### Generate certificate and key
