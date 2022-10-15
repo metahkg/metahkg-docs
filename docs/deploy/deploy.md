@@ -10,10 +10,10 @@ After [setting up environment](/docs/category/set-up-environment), you can now d
 
 You can:
 
-- build images from source (default)
-- build images from source, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui)
-- use prebuilt images (no need to wait for building, but less customizations)
-- use prebuilt images, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui)
+- use prebuilt images (this is recommended, no need to wait for building), see [#use-prebuilt-images](#use-prebuilt-images)
+- use prebuilt images, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui), see [#mongo-express](#mongo-express) then go to [#use-prebuilt-images](#use-prebuilt-images)
+- build images from source, see [#build-from-source](#build-from-source)
+- build images from source, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui), see [#mongo-express](#mongo-express) then go to [#build-from-source](#build-from-source)
 
 ## Mongo-express
 
@@ -23,20 +23,6 @@ After you deploy metahkg, you can access the mongo-express gui at `localhost:${M
 
 The username as password are `$MONGO_USER` and `$MONGO_PASSWORD` as you configured in [environmental variables](./setup/env.md).
 
-## Build from source
-
-### Normal
-
-```bash
-yarn docker
-# build and start the containers
-```
-
-### With mongo-express
-
-```bash
-yarn docker:express
-```
 
 ## Use prebuilt images
 
@@ -79,6 +65,21 @@ yarn docker:prebuilt
 yarn docker:express-prebuilt
 ```
 
+## Build from source
+
+### Normal
+
+```bash
+yarn docker
+# build and start the containers
+```
+
+### With mongo-express
+
+```bash
+yarn docker:express
+```
+
 ## Metahkg is now deployed locally
 
-Metahkg is at localhost:3000 (if you didn't alter the port). To enable metahkg links and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).
+Metahkg is at localhost:3000 (if you didn't alter the port). To enable metahkg-links and metahkg-images and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).
