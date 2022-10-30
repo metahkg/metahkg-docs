@@ -101,6 +101,10 @@ const config = {
                                 label: "Discord",
                                 href: "https://discord.gg/yrf2v8KGdc",
                             },
+                            {
+                                label: "Email support",
+                                href: "mailto:contact-project+metahkg-metahkg-34163825-issue-@incoming.gitlab.com"
+                            }
                         ],
                     },
                     {
