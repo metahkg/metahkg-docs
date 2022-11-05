@@ -14,7 +14,7 @@ cp temp.env .env
 ## Edit varibles in .env according to the descriptions
 
 ```bash title=docker/.env
-port=3000
+port=3002
 # port that the whole thing runs on
 # required
 

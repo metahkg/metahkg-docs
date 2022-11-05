@@ -82,4 +82,4 @@ yarn docker:express
 
 ## Metahkg is now deployed locally
 
-Metahkg is at localhost:3000 (if you didn't alter the port). To enable metahkg-links and metahkg-images and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).
+Metahkg is at localhost:3002 (if you didn't alter the port). To enable metahkg-links and metahkg-images and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).
