@@ -1,0 +1,16 @@
+update_api_docs:
+  image: node:18-alpine
+  stage: update
+  before_script:
+    - apk add git
+    - git config --global user.name metahkg-bot
+    - git config --global user.email bot@metahkg.org
+    - git checkout $CI_COMMIT_BRANCH
+    - git remote set-url origin "https://root:${gitlab_token}@$CI_SERVER_HOST/$CI_PROJECT_PATH"
+  script:
+    - ./update-api-docs.sh
+    - git add -A
+    - git commit -a -m "update api docs" || echo "nothing to commit, skipping"
+    - git push origin $CI_COMMIT_BRANCH
+  rules:
+    - if: $UPDATE
