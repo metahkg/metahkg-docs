@@ -117,7 +117,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} Metahkg Contributors. CC-BY-4.0.`,
+                copyright: `Copyright © 2022-present Metahkg Contributors. CC-BY-4.0.`,
             },
             prism: {
                 theme: lightCodeTheme,
