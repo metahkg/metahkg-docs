@@ -1,3 +1,22 @@
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+  - review
+  - dast
+  - fuzz
+  - staging
+  - canary
+  - production
+  - incremental rollout 10%
+  - incremental rollout 25%
+  - incremental rollout 50%
+  - incremental rollout 100%
+  - performance
+  - cleanup
+  - update
+
 update_api_docs:
   image: node:18-alpine
   stage: update
