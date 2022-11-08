@@ -38,6 +38,7 @@ export default function Swagger(props: { url: string }) {
                     url={url}
                     displayOperationId
                     deepLinking
+                    defaultModelExpandDepth={5}
                     showExtensions
                     requestSnippetsEnabled
                     requestSnippets={{
