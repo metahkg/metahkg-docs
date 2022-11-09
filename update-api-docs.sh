@@ -1,4 +1,5 @@
 cd docs/api;
+version=$(echo "$version" | tr -d '\n')
 lastitem=$(ls | tr '\n' ' ' | awk '{ print $(NF) }');
 lastitemdev=$(find *-dev -depth | tr '\n' ' ' | awk '{ print $(NF) }');
 echo version "$version"
