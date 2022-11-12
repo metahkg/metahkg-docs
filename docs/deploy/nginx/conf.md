@@ -18,7 +18,7 @@ sudo nano /etc/nginx/conf.d/metahkg.conf
 
 ```nginx title=/etc/nginx/conf.d/metahkg.conf
 server {
-    server_name example.com l.example.com i.example.com;
+    server_name example.com l.example.com i.example.com rlp.example.com;
     # replace with your domains
 
     server_tokens off;
@@ -38,7 +38,7 @@ server {
     }
 }
 server {
-    server_name example.com l.exmaple.com i.example.com;
+    server_name example.com l.exmaple.com i.example.com rlp.example.com;
     # replace with your domain
 
     server_tokens off;
@@ -54,7 +54,7 @@ server {
 
 ```nginx title=/etc/nginx/conf.d/metahkg.conf
 server {
-    server_name example.com l.example.com i.example.com;
+    server_name example.com l.example.com i.example.com rlp.example.com;
     # replace with your domains
 
     server_tokens off;
