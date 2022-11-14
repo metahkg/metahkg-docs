@@ -51,7 +51,7 @@ IMAGES_DOMAIN=i.metahkg.org
 
 RLP_PROXY_DOMAIN=rlp.metahkg.org
 # rlp proxy domain
-# https://gitlab.com/metahkg/rlp-proxy
+# https://gitlab.com/metahkg/rlp-proxy-rewrite
 # point domain to your server, deployment not needed
 # required
 
