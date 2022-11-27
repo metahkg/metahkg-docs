@@ -32,7 +32,7 @@ MONGO_PASSWORD=password
 
 MONGO_EXPRESS_PORT=8081
 # mongo-express (a mongodb gui) port
-# required only if you run yarn docker:express or yarn docker:express-prebuilt
+# required only if you run add mongo-express
 
 domain=metahkg.org
 # please change to your domain name

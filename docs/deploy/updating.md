@@ -70,32 +70,6 @@ filename="src/migrate/v$(node -e "console.log('${version}'.split('.').slice(0,2)
 npx ts-node "${filename}"
 ```
 
-## Rebuild docker
+## Redeploy docker
 
-### Build from source
-
-#### Normal
-
-```bash
-yarn docker
-```
-
-#### With mongo-express
-
-```bash
-yarn docker:express
-```
-
-### Prebuilt images
-
-#### Normal
-
-```bash
-yarn docker:prebuilt
-```
-
-#### With mongo-express
-
-```bash
-yarn docker:express-prebuilt
-```
+See [deploy](/docs/deploy).
