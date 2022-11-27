@@ -42,7 +42,7 @@ filename="src/migrate/v$(node -e "console.log('${version}'.split('.').slice(0,2)
 if [ -f "${filename}" ]; then echo "Found migrate script"; else echo "No migrate script found"; fi
 ```
 
-If migrate script is found, proceed, or else skip this and go to [rebuild docker](#rebuild-docker).
+If migrate script is found, proceed, or else skip this and go to [redeploy docker](#redeploy-docker).
 
 ### Install dependencies
 
@@ -72,4 +72,4 @@ npx ts-node "${filename}"
 
 ## Redeploy docker
 
-See [deploy](/docs/deploy).
+Rerun the command in [deploy](/docs/deploy).

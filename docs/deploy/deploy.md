@@ -16,6 +16,16 @@ In addition to the default config, you can add additional options:
 
 ### vpn
 
+Use protonvpn for network requests.
+Uses [protonvpn-docker](https://github.com/tprasadtp/protonvpn-docker).
+
+Please config the required [environment variables](./setup/env.md):
+
+- `PROTONVPN_USERNAME`
+- `PROTONVPN_PASSWORD`
+- `PROTONVPN_SERVER`
+- `PROTONVPN_TIER`
+
 ### mongo-express
 
 If you want to add [mongo-express](https://github.com/mongo-express/mongo-express), make sure you have set `MONGO_EXPRESS_PORT` in .env (see [environmental variables](./setup/env.md)).

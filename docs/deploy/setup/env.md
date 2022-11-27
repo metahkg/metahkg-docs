@@ -32,7 +32,8 @@ MONGO_PASSWORD=password
 
 MONGO_EXPRESS_PORT=8081
 # mongo-express (a mongodb gui) port
-# required only if you run add mongo-express
+# required only if you add mongo-express
+# see https://docs.metahkg.org/docs/deploy
 
 domain=metahkg.org
 # please change to your domain name
@@ -86,7 +87,7 @@ COMPOSE_PROJECT_NAME=
 # Leave this blank if you are not sure
 
 cors=false
-# give some value (e.g. true) to this to support cors
+# set to true to support cors
 # Leave this false if you are not sure
 
 env=production
@@ -94,12 +95,14 @@ env=production
 # Leave this as production if you are not sure
 
 branch=master
-# select a branch for prebuilt images. If you want to build from source, ignore this.
+# select a branch (dev or master) for prebuilt images. If you want to build from source, ignore this.
 # Leave this as master if you are not sure
+# see https://docs.metahkg.org/docs/intro#branches
 
 version=latest
-# select a major or minor version for prebuilt images (e.g. 4, 4.0)
+# select latest or a major / minor version for prebuilt images (e.g. 4, 4.0)
 # Leave this as latest if you are not sure
+# see https://docs.metahkg.org/docs/deploy#tags
 
 VAPID_PUBLIC_KEY=<VAPID_PUBLIC_KEY>
 VAPID_PRIVATE_KEY=<VAPID_PRIVATE_KEY>
