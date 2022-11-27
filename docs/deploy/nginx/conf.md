@@ -14,6 +14,13 @@ Create a nginx configuration file:
 sudo nano /etc/nginx/conf.d/metahkg.conf
 ```
 
+In the following examples, replace the domains
+
+- example.com -> you main metahkg domain / subdomain
+- i.example.com -> you domain / subdomain for the [image proxy](https://github.com/willnorris/imageproxy)
+- l.example.com -> you domain / subdomain for the [link shortening server](https://gitlab.com/metahkg/metahkg-links)
+- rlp.example.com -> you domain / subdomain for the [link preview proxy](https://gitlab.com/metahkg/rlp-proxy-rewrite)
+
 ## Self signed certificate, or you already have a certificate
 
 ```nginx title=/etc/nginx/conf.d/metahkg.conf
