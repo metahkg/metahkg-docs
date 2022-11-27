@@ -60,7 +60,7 @@ See [here](/docs/category/api) for the api docs.
 
 See [gitlab.com/metahkg/metahkg-api](https://gitlab.com/metahkg/metahkg-api) for the typescript api client.
 
-# Getting Started
+## Getting Started
 
 Get started by trying a [deployment](./deploy).
 

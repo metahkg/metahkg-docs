@@ -11,11 +11,11 @@ cd docker
 cp temp.env .env
 ```
 
-## Edit varibles in .env according to the descriptions
+## Edit .env
 
 ```bash title=docker/.env
-port=3002
-# port that the whole thing runs on
+PORT=3002
+# port that metahkg runs on
 # required
 
 MONGO_PORT=30000
@@ -110,4 +110,12 @@ GCM_API_KEY=<GCM_API_KEY>
 GCM_SENDER_ID=<GCM_SENDER_ID>
 # gcm api key and sender id
 # see https://www.connecto.io/kb/knwbase/getting-gcm-sender-id-and-gcm-api-key/
+
+# Protonvpn config (for deploying with protonvpn only)
+# see https://docs.metahkg.org/docs/deploy
+# see https://github.com/tprasadtp/protonvpn-docker for more information on the variables
+PROTONVPN_USERNAME=""
+PROTONVPN_PASSWORD=""
+PROTONVPN_SERVER="JP"
+PROTONVPN_TIER=0
 ```

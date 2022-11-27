@@ -8,78 +8,125 @@ After [setting up environment](/docs/category/set-up-environment), you can now d
 
 ## Options
 
-You can:
+In addition to the default config, you can add additional options:
 
-- use prebuilt images (this is recommended, no need to wait for building), see [#use-prebuilt-images](#use-prebuilt-images)
-- use prebuilt images, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui), see [#mongo-express](#mongo-express) then go to [#use-prebuilt-images](#use-prebuilt-images)
-- build images from source, see [#build-from-source](#build-from-source)
-- build images from source, and bundle with [mongo-express](https://github.com/mongo-express/mongo-express) (a mongodb gui), see [#mongo-express](#mongo-express) then go to [#build-from-source](#build-from-source)
+- `vpn`: use protonvpn for network requests
+- `express`: add mongo-express, see [#mongo-express](#mongo-express)
+- `prebuilt`: use prebuilt images (this is recommended), see [#use-prebuilt-images](#use-prebuilt-images)
 
-## Mongo-express
+### vpn
 
-If you want to bundle with [mongo-express](https://github.com/mongo-express/mongo-express), make sure you have set `MONGO_EXPRESS_PORT` in .env (see [environmental variables](./setup/env.md)).
+### mongo-express
+
+If you want to add [mongo-express](https://github.com/mongo-express/mongo-express), make sure you have set `MONGO_EXPRESS_PORT` in .env (see [environmental variables](./setup/env.md)).
 
 After you deploy metahkg, you can access the mongo-express gui at `localhost:${MONGO_EXPRESS_PORT}`.
 
 The username as password are `$MONGO_USER` and `$MONGO_PASSWORD` as you configured in [environmental variables](./setup/env.md).
 
+### Use prebuilt images
 
-## Use prebuilt images
-
-:::warning Warning
+:::warning Image update delays
 The images are built on gitlab ci/cd and are pushed a few minutes after each commit. If you find the api and web app incompatible, try to redeploy a few minutes later.
 :::
 
-:::tip Tags
-New images are built every commit.
-
-Some tags are maintained:
-
-- latest
-- major versions (e.g. 5)
-- minor versions (e.g. 5.0)
-
-There are also tags with the name being the commit hash. They are used for testing purpose only.
+:::warning Warning
+DO NOT use prebuilt images if you set `env=dev` in [environmental variables](./setup/env.md) as it is NOT supported.
 :::
 
 :::tip Nginx container
 The nginx container is still built locally since it is just some copying of files.
 :::
 
-You can use prebuilt images so you don't need to waste time building (given that your machine might crash due to high memory usage).
+The use of prebuilt images is recommended for production. Images would be pulled from our [gitlab container registry](https://gitlab.com/groups/metahkg/-/container_registries) instead of being built locally.
 
-### Environment
+#### Tags
 
-Please add `branch=master` or `branch=dev` to docker/.env if you haven't to configure which branch of images you would like to use.
+New images are built every commit.
 
-### Normal
+Some tags are maintained:
 
-```bash
-yarn docker:prebuilt
-# pull the docker images and deploy
-```
+- `latest`
+- major versions (e.g. `5`)
+- minor versions (e.g. `5.0`)
 
-### With mongo-express
+There are also tags with the name being the commit hash. They are used for testing purpose only.
 
-```bash
-yarn docker:express-prebuilt
-```
+It is recommended to use `latest` or major versions. Minor versions may not be available in every sub-project.
 
-## Build from source
+For all of the docker images, see the [gitlab container registry](https://gitlab.com/groups/metahkg/-/container_registries).
 
-### Normal
+#### Environment
+
+If you want to use prebuilt images, you must set two environment variables as listed in [environmental variables](./setup/env.md).
+
+- `branch`: `master` or `dev`
+- `version`: see [tags](#tags)
+
+## Commands
+
+### Default configuration
 
 ```bash
 yarn docker
-# build and start the containers
 ```
 
-### With mongo-express
+### Prebuilt
+
+```bash
+yarn docker:prebuilt
+```
+
+### With additional options
+
+Add the additional options straightly according to the order in [options](#options).
+
+#### Examples
+
+#### VPN
+
+```bash
+yarn docker:vpn
+```
+
+#### VPN, Prebuilt
+
+```bash
+yarn docker:vpn:prebuilt
+```
+
+#### with mongo-express
 
 ```bash
 yarn docker:express
 ```
 
-## Metahkg is now deployed locally
+#### mongo-express, prebuilt
 
-Metahkg is at localhost:3002 (if you didn't alter the port). To enable metahkg-links and metahkg-images and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).
+```bash
+yarn docker:express:prebuilt
+```
+
+#### VPN, express, prebuilt
+
+```bash
+yarn docker:vpn:express:prebuilt
+```
+
+## Other commands
+
+### Stop and remove containers
+
+```bash
+yarn docker:down
+```
+
+### Logs
+
+```bash
+yarn docker:logs
+```
+
+## Next steps
+
+Metahkg is at `localhost:${PORT}` (by default, `localhost:3002`). To enable `metahkg-links` and `metahkg-images` and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).
