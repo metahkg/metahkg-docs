@@ -6,7 +6,7 @@ echo version "$version"
 echo lastitem "$lastitem"
 echo lastitemdev "$lastitemdev"
 if [ -d "$version" ]; then echo "version exists" && exit 0; fi;
-if [[ "$version" == *"-dev" ]];
+if [[ "$version" == *"dev" ]];
 then
   mv "$lastitemdev" "$version" && sed -i "s/${lastitemdev}/${version}/g" "${version}/index.mdx";
   echo "/docs/api/${lastitemdev} /docs/api/${version} 301" >> ../../_redirects;
