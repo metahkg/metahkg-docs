@@ -6,6 +6,15 @@ sidebar_position: 2
 
 After [setting up environment](/docs/category/set-up-environment), you can now deploy Metahkg using docker.
 
+## Volumes
+
+Firstly, please create the directories for the volumes:
+
+```bash
+cd docker
+mkdir certs images imageproxy
+```
+
 ## Options
 
 In addition to the default config, you can add additional options:
