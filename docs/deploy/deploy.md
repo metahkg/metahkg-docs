@@ -12,7 +12,7 @@ Firstly, please create the directories for the volumes:
 
 ```bash
 cd docker
-mkdir certs images imageproxy
+mkdir certs images imageproxy imgpush
 ```
 
 ## Options

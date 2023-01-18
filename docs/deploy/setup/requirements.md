@@ -5,7 +5,12 @@ sidebar_position: 1
 # Requirements
 
 :::tip Supported OSes
-We support:
+## Architectures
+
+- amd64
+- arm64
+
+## Systems
 
 - Debian / Ubuntu
 - Arch Linux
@@ -13,8 +18,6 @@ We support:
 - MacOS (with [brew](https://brew.sh/) installed)
 
 It should work on other distributions, you can try translating the commands below.
-
-We offer no support for Windows.
 :::
 
 ## Local
