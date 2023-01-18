@@ -94,7 +94,10 @@ brew install nodejs yarn
 #### Debian
 
 ```bash
-sudo apt install docker.io docker-compose
+sudo apt install docker.io
+
+sudo curl -L "https://github.com/docker/compose/releases/download/$(curl --silent "https://api.github.com/repos/docker/compose/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 #### Arch
@@ -106,7 +109,10 @@ sudo pacman -Sy docker docker-compose
 #### RHEL
 
 ```bash
-sudo dnf install docker docker-compose
+sudo dnf install docker
+
+sudo curl -L "https://github.com/docker/compose/releases/download/$(curl --silent "https://api.github.com/repos/docker/compose/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 #### MacOS
