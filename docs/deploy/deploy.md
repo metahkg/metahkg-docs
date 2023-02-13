@@ -148,4 +148,4 @@ yarn docker:logs
 
 ## Next steps
 
-Metahkg is at `localhost:${PORT}` (by default, `localhost:3002`). To enable `metahkg-links` and `metahkg-images` and/or make your instance public, please [configure nginx](/docs/category/configure-nginx).
+Metahkg web and server are now accessible at `localhost:${PORT}` (by default, `localhost:3002`). To complete the metahkg installation and make your instance public, please [configure nginx](/docs/category/configure-nginx).
