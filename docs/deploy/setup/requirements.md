@@ -22,6 +22,11 @@ It should work on other distributions, you can try translating the commands belo
 
 ## Local
 
+:::tip
+You could install other dependencies using the [setup script](./script.md),
+but you must install [git](#git) and [clone the repository](./clone.md) first.
+:::
+
 ### Git
 
 #### Debian

@@ -1,19 +1,26 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Environmental variables
+
+:::tip
+This can be automated by running:
+```bash
+./setup.sh -c
+```
+:::
 
 ## Copy environment variables
 
 ```bash
 cd docker
-cp temp.env .env
+cp example.env .env
 ```
 
 ## Edit .env
 
-```bash title=docker/.env
+```bash
 # port that metahkg runs on
 # required
 PORT=3002
@@ -29,6 +36,15 @@ MONGO_USER=username
 # mongodb password
 # required
 MONGO_PASSWORD=password
+
+# mongodb docker image
+# you can change to another docker image compatible with the official mongo image
+# if you are using raspberry pi (armv8 only, armv7 is not supported), uncomment the following line and comment the original line
+# MONGO_IMAGE=registry.gitlab.com/metahkg/bin/mongodb-arm64-bin:6.0
+# see https://gitlab.com/metahkg/bin/mongodb-arm64-bin for more information
+# don't change it if you don't know what you are doing
+# leave it the default value if you are not sure (if using raspberry pi, you must follow the above instructions)
+MONGO_IMAGE=mongo:6.0
 
 # mongo-express (a mongodb gui) port
 # required only if express is in your options
@@ -50,28 +66,66 @@ DOMAIN=metahkg.org
 # metahkg links domain
 # point domain to your server, deployment not needed
 # required
-LINKS_DOMAIN=l.${domain}
+LINKS_DOMAIN=l.metahkg.org
 
-# images proxy domain
-# https://github.com/willnorris/imageproxy
+# images proxy & image uploading domain
+# https://github.com/metahkg/forks/imageproxy
+# https://gitlab.com/metahkg/forks/imgpush
 # point domain to your server, deployment not needed
 # required
-IMAGES_DOMAIN=i.${domain}
+IMAGES_DOMAIN=i.metahkg.org
 
 # rlp proxy domain
 # https://gitlab.com/metahkg/rlp-proxy-rewrite
 # point domain to your server, deployment not needed
 # required
-RLP_PROXY_DOMAIN=rlp.${domain}
+RLP_PROXY_DOMAIN=rlp.metahkg.org
+
+# metahkg redirect domain
+# https://gitlab.com/metahkg/metahkg-redirect
+# point domain to your server, deployment not needed
+# required
+REDIRECT_DOMAIN=r.metahkg.org
+
+# set to true to enable cors for the main api server
+# cors means that your api can be accessed by other websites
+# Leave this false if you are not sure
+CORS=false
 
 # mailgun api key: obtain one at https://mailgun.com,
-# the flex plan is free (with a limit of about 1000 emails)
-# required
-MAILGUN_KEY=<mailgun-api-key>
+# the flex plan is free (with a limit of 1000 emails)
+# if this is configured, mailgun would be used
+# otherwise, smtp is used (see below)
+# you must either configure this or the smtp options
+MAILGUN_KEY=
 
 # mailgun domain, if different from the domain
 # optional
 MAILGUN_DOMAIN=
+
+# smtp options are used if mailgun is not configured (MAILGUN_KEY)
+# all required if mailgun is not configured
+# ignored if mailgun is configured
+# e.g. send using gmail: https://forwardemail.net/en/guides/send-mail-as-gmail-custom-domain
+# WARNING: could be much slower
+# WARNING: this is untested, use at your own risk
+
+# smtp server hostname
+SMTP_HOST=smtp.gmail.com
+# smtp server port
+SMTP_PORT=587
+# whether to use ssl (normally false)
+SMTP_SSL=false
+# enable starttls, does not fail if tls is not available
+SMTP_TLS=true
+# require tls (must be used with SMTP_TLS)
+SMTP_REQUIRE_TLS=false
+# smtp username
+SMTP_USER=username
+# smtp password
+SMTP_PASSWORD=password
+# email address for sending emails
+SMTP_EMAIL=support@metahkg.org
 
 # "normal" | "invite" | "none"
 # https://docs.metahkg.org/docs/customize/registermode/
@@ -99,22 +153,51 @@ VISIBILITY=public
 # create at https://www.google.com/recaptcha/admin
 # choose v2 invisible
 # required
-RECAPTCHA_SITE_KEY=<recaptcha-site-key>
+RECAPTCHA_SITE_KEY=
 
 # recatcha secret, must be a pair with recaptcha site key
 # create at https://www.google.com/recaptcha/admin
 # choose v2 invisible
 # required
-RECAPTCHA_SECRET=<recaptcha-secret>
+RECAPTCHA_SECRET=
+
+# generate a VAPID key pair using web-push:
+# https://www.npmjs.com/package/web-push#command-line
+VAPID_PUBLIC_KEY=
+VAPID_PRIVATE_KEY=
+
+# gcm api key and sender id
+# see https://www.connecto.io/kb/knwbase/getting-gcm-sender-id-and-gcm-api-key/
+GCM_API_KEY=
+GCM_SENDER_ID=
+
+# google safebrowsing api key
+# see https://developers.google.com/safe-browsing/v4/get-started
+# get an api key at https://console.cloud.google.com/apis/api/safebrowsing.googleapis.com/credentials
+SAFEBROWSING_API_KEY=
+
+# passphrase for the private key (used for jwt signing)
+# keys will be automatically generated
+# required
+KEY_PASSPHRASE="super secret passphrase"
+
+# Protonvpn config (for deploying with protonvpn only)
+# see https://docs.metahkg.org/docs/deploy
+# see https://github.com/tprasadtp/protonvpn-docker for more information on the variables
+# all are required if and only if you are using the vpn option
+PROTONVPN_USERNAME=""
+PROTONVPN_PASSWORD=""
+PROTONVPN_SERVER="JP"
+PROTONVPN_TIER=0
+
+# memory and swap limit, default is 500mb
+# you may need more memory and swap in a dev environment
+MEM_LIMIT=500mb
+MEMSWAP_LIMIT=500mb
 
 # configure this for different container names (so you can run multiple instances of metahkg)
 # Leave this as metahkg if you are not sure
 COMPOSE_PROJECT_NAME=metahkg
-
-# set to true to enable cors
-# cors means that your api can be accessed by other websites
-# Leave this false if you are not sure
-CORS=false
 
 # set this to dev to enable hot reload
 # Leave this as production if you are not sure
@@ -130,28 +213,4 @@ branch=master
 # Leave this as latest if you are not sure
 # see https://docs.metahkg.org/docs/deploy#tags
 version=latest
-
-# generate a VAPID key pair using web-push:
-# https://www.npmjs.com/package/web-push#command-line
-VAPID_PUBLIC_KEY=<VAPID_PUBLIC_KEY>
-VAPID_PRIVATE_KEY=<VAPID_PRIVATE_KEY>
-
-# gcm api key and sender id
-# see https://www.connecto.io/kb/knwbase/getting-gcm-sender-id-and-gcm-api-key/
-GCM_API_KEY=<GCM_API_KEY>
-GCM_SENDER_ID=<GCM_SENDER_ID>
-
-# Protonvpn config (for deploying with protonvpn only)
-# see https://docs.metahkg.org/docs/deploy
-# see https://github.com/tprasadtp/protonvpn-docker for more information on the variables
-# all are required if and only if you are using the vpn option
-PROTONVPN_USERNAME=""
-PROTONVPN_PASSWORD=""
-PROTONVPN_SERVER="JP"
-PROTONVPN_TIER=0
-
-# passphrase for the private key (used for jwt signing)
-# keys will be automatically generated
-# required
-KEY_PASSPHRASE="super secret passphrase"
 ```
