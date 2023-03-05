@@ -67,6 +67,12 @@ e.g.
 yarn ts-node src/migrate/v6.5/v6.5.0.ts
 ```
 
+## Reconfigure
+
+```bash
+./setup.sh -c
+```
+
 ## Redeploy docker
 
 Rerun the command in [deploy](/docs/deploy).
