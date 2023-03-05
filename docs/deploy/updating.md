@@ -51,10 +51,11 @@ Add the following content to .env
 ```bash
 # .env
 
-MONGO_URI=mongodb://localhost:${MONGO_PORT}
+MONGO_URI=mongodb://username:password@localhost:${MONGO_PORT}
 ```
 
 Whereas `${MONGO_PORT}` is the port of the mongo instance as you set in [Environmental variables](./setup/env.md).
+Change username and password as well.
 
 ### Run script
 
