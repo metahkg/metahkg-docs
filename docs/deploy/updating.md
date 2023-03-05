@@ -13,8 +13,8 @@ You should check for updates regularly. (For bug fixes and feature updates.)
 ```bash
 git pull origin master
 
-git submodule foreach git pull
-# pull the submodules
+git submodule update --init --recursive
+# update the submodules
 ```
 
 ### Dev
@@ -22,8 +22,8 @@ git submodule foreach git pull
 ```bash
 git pull origin dev
 
-git submodule foreach git pull
-# pull the submodules
+git submodule update --init --recursive
+# update the submodules
 ```
 
 ## Migrate
@@ -36,13 +36,7 @@ cd metahkg-server
 
 ### Check for migrate script
 
-```bash
-version=$(node -e "console.log(require(\"./package.json\").version)")
-filename="src/migrate/v$(node -e "console.log('${version}'.split('.').slice(0,2).join('.'))")/v${version}.ts"
-if [ -f "${filename}" ]; then echo "Found migrate script"; else echo "No migrate script found"; fi
-```
-
-If migrate script is found, proceed, or else skip this and go to [redeploy docker](#redeploy-docker).
+Check for files in `src/migrate` that are in between your old and new versions.
 
 ### Install dependencies
 
@@ -57,17 +51,19 @@ Add the following content to .env
 ```bash
 # .env
 
-DB_URI=mongodb://localhost:${MONGO_PORT}
+MONGO_URI=mongodb://localhost:${MONGO_PORT}
 ```
 
 Whereas `${MONGO_PORT}` is the port of the mongo instance as you set in [Environmental variables](./setup/env.md).
 
 ### Run script
 
+Execute all the afore-mentioned scripts.
+
+e.g.
+
 ```bash
-version=$(node -e "console.log(require(\"./package.json\").version)")
-filename="src/migrate/v$(node -e "console.log('${version}'.split('.').slice(0,2).join('.'))")/v${version}.ts"
-npx ts-node "${filename}"
+yarn ts-node src/migrate/v6.5/v6.5.0.ts
 ```
 
 ## Redeploy docker
